@@ -1,0 +1,6 @@
+main p::first-letter {
+    font-size: 150%;
+    color: rgb(100, 118, 9);
+    line-height: 1.6;
+    font-weight: bold;
+}

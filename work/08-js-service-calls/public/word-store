@@ -1,0 +1,175 @@
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/services.js":
+/*!*************************!*\
+  !*** ./src/services.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   fetchLogin: () => (/* binding */ fetchLogin)
+/* harmony export */ });
+// This is a sample file that demonstrates
+// how you can write an abstraction around
+// a fetch() call
+// This exported function returns a promise
+// that resolves with data
+// or rejects with an error object
+//
+// The caller of this function can decide
+// what to do with the data
+// or what to do with the error
+//
+// You can add to this file and use this function
+// or write your own files/functions
+
+function fetchLogin(username) {
+  return fetch('/api/session/', {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json' // set this header when sending JSON in the body of request
+    },
+    body: JSON.stringify({
+      username: username
+    })
+  })
+  // fetch() rejects on network error
+  // So we convert that to a formatted error object
+  // so our caller can handle all "errors" in a similar way
+  ["catch"](function (err) {
+    return Promise.reject({
+      error: 'network-error'
+    });
+  }).then(function (response) {
+    if (!response.ok) {
+      // response.ok checks the status code from the service
+      // This service returns JSON on errors,
+      // so we use that as the error object and reject
+      return response.json().then(function (err) {
+        return Promise.reject(err);
+      });
+    }
+    return response.json(); // happy status code means resolve with data from service
+  });
+}
+
+/***/ }),
+
+/***/ "./src/web-page.js":
+/*!*************************!*\
+  !*** ./src/web-page.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   render: () => (/* binding */ render)
+/* harmony export */ });
+var appContainer = document.querySelector('#app');
+var render = function render(user, currentWord) {
+  appContainer.innerHTML = buildContent(username, currentWord);
+};
+var buildContent = function buildContent(username, currentWord) {
+  if (!username && !currentWord) {
+    return "\n            <div class=\"container\">\n                <input class=\"user-input\" placeholder=\"Enter username to log in\" />\n                <button class=\"catLogin\">Cat Login</button>\n            </div>\n            <div class=\"error\"></div>\n        ";
+  } else {
+    return "\n            <div class=\"conntainer\">\n                <div class=\"useInfo\">\n                   <div> Username: ".concat(username, "</div>\n                   <div>Your Word: ").concat(currentWord || 'Not set', "</div>\n                </div>\n            <input class=\"user-input\" type=\"text\" placeholder=\"New word here\" />\n            <button class=\"btn-update\">Update Word</button>\n            <button class=\"logout\">Log Out</button>\n            </div>\n            <section class=\"error\"></section>\n        ");
+  }
+};
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+(() => {
+/*!***************************!*\
+  !*** ./src/word-store.js ***!
+  \***************************/
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _web_page__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web-page */ "./src/web-page.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./services */ "./src/services.js");
+
+
+var appContainer = document.querySelector('#app');
+var errorContent = document.querySelector('.error');
+appContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('catLogin')) {
+    var input = document.querySelector('.user-input');
+    var username = input.value;
+    (0,_services__WEBPACK_IMPORTED_MODULE_1__.fetchLogin)(username)["catch"](function (err) {
+      if (err.error == 'network-error') {
+        errorContent.innerHTML = "<p>Check your Router Make Sure All Set</p>";
+        return;
+      } else if (err.error == 'required-username') {
+        errorContent.innerHTML = "<p> Plaese Kindly use numbers and letters </p>";
+        return;
+      } else if (err.error == 'auth-insufficient') {
+        errorContent.innerHTML = "<p> Kindly Using Cat and number and letter</p>";
+        return;
+      }
+    }).then();
+  }
+});
+})();
+
+/******/ })()
+;

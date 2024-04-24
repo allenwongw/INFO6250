@@ -1,0 +1,76 @@
+
+body,div,h1,input,button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body {
+    background-color:skyblue;
+    color: white;
+}
+
+h1 {
+    background-color: red;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border: 4px solid rgb(255, 108, 0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.input, .cat-login, .new-word,.log-out {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 10px 0;
+    background-color: rgb(76, 175, 80);
+    border: 2px solid rgb(0, 100, 0);
+    color: white;
+    font-size: 16px;
+}
+
+.input {
+    background-color: rgb(245, 248, 250);
+    color: rgb(51, 51, 51);
+}
+
+.cat-login,
+.new-word,
+.log-out {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.cat-login:hover,
+.new-word:hover,
+.log-out:hover {
+    background-color: rgb(255, 108, 0);
+}
+
+.user-name div {
+    margin-bottom: 10px;
+}
+
+.error {
+    color: rgb(217, 83, 79);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.user-name, .new-words {
+    color: white;
+    background-color: rgb(255, 108, 0);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

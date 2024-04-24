@@ -1,0 +1,76 @@
+body{
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: rgb(235, 222, 222);
+}
+
+#chat-app {
+    display: grid;
+    grid-template-areas:
+        "users messages"
+        "outgoing outgoing";
+    grid-template-rows: 1fr auto;
+    grid-template-columns: 300px 1fr;
+    gap: 20px;
+    padding: 20px;
+    height: 100vh;
+    box-sizing: border-box;
+}
+
+.users,.messages {
+    overflow-y: auto;
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+}
+.user {
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: gray;
+    border-radius: 4px;
+}
+
+.user:hover {
+    background-color: yellow;
+}
+.chat-box {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgb(40, 220, 40);
+    border-radius: 4px;
+}
+
+.sender {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.outgoing {
+    grid-area: outgoing;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: rgb(43, 255, 0);
+    border-radius: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: blue;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    ;
+}

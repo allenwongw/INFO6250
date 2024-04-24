@@ -1,0 +1,27 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-page,
+.game-page {
+  text-align: center;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logout {
+  background-color: rgb(255, 0, 0);
+}
+
+.name-error {
+  color: rgb(255, 0, 0);
+}
+
+.word-result {
+  margin-top: 20px;
+}

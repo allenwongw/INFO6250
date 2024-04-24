@@ -1,0 +1,95 @@
+body,html {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(241, 231, 231);
+    color: black;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px;
+}
+
+h2 {
+    color: blue;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-text {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid rgb(0, 149, 255);
+    border-radius: 4px;
+}
+
+.login-btn {
+    background-color: rgb(78, 78, 211);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background-color: yellow;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.welcome-title {
+    color: skyblue;
+}
+
+.stored-word {
+    margin: 20px 0;
+}
+
+.word-form,
+.logout-form {
+    margin: 20px 0;
+}
+
+.word-input,.btn {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid grey;
+    border-radius: 4px;
+    width: calc(100% - 22px);
+}
+
+.update-btn {
+    background-color: slateblue;
+    color: white;
+    cursor: pointer;
+}
+
+.logout-btn {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}

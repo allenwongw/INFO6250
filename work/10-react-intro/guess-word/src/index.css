@@ -1,0 +1,27 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Press Start 2P', cursive;
+  background-color: rgb(92, 148, 252);
+}
+
+button {
+  font-family: 'Press Start 2P', cursive;
+  background-color: rgb(255, 140, 0);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+input {
+  font-family: 'Press Start 2P', cursive;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+h1 {
+  text-align: center;
+}
